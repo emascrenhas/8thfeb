@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Propose Day ❤️</title>
+  <title>For Ruchi ❤️</title>
 
   <style>
     body {
@@ -17,13 +17,13 @@
     }
 
     .container {
-      padding: 60px 20px;
+      padding: 80px 20px;
       max-width: 700px;
       margin: auto;
     }
 
     h1 {
-      font-size: 2.4rem;
+      font-size: 2.3rem;
       margin-bottom: 10px;
       color: #e6c36a;
       letter-spacing: 1px;
@@ -32,14 +32,14 @@
     .subtitle {
       font-size: 1.1rem;
       opacity: 0.9;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
     }
 
     .envelope {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(230, 195, 106, 0.35);
       border-radius: 18px;
-      padding: 30px 20px;
+      padding: 35px 20px;
       box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.45);
       backdrop-filter: blur(8px);
     }
@@ -55,6 +55,8 @@
       cursor: pointer;
       transition: 0.3s;
       font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
     }
 
     .btn:hover {
@@ -63,63 +65,8 @@
       transform: scale(1.05);
     }
 
-    .letter {
-      display: none;
-      margin-top: 35px;
-      background: rgba(255, 255, 255, 0.06);
-      border-radius: 18px;
-      padding: 30px 22px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      text-align: left;
-      line-height: 1.8;
-      font-size: 1.1rem;
-      box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.45);
-    }
-
-    .typing {
-      border-right: 2px solid #e6c36a;
-      white-space: pre-wrap;
-      overflow: hidden;
-      animation: blink 0.8s infinite;
-    }
-
-    @keyframes blink {
-      50% {
-        border-color: transparent;
-      }
-    }
-
-    .propose-btn {
-      display: none;
-      margin: 25px auto 0;
-      background: transparent;
-      border: 2px solid #e6c36a;
-      padding: 12px 26px;
-      border-radius: 35px;
-      font-size: 1rem;
-      color: #e6c36a;
-      cursor: pointer;
-      transition: 0.3s;
-      font-weight: 600;
-      text-align: center;
-    }
-
-    .propose-btn:hover {
-      background: #e6c36a;
-      color: #0b0b0f;
-      transform: scale(1.05);
-    }
-
-    .final-msg {
-      margin-top: 30px;
-      font-size: 1.3rem;
-      font-weight: 600;
-      text-align: center;
-      color: #e6c36a;
-    }
-
     footer {
-      margin-top: 60px;
+      margin-top: 80px;
       padding: 20px;
       font-size: 0.9rem;
       opacity: 0.75;
@@ -129,107 +76,23 @@
 
 <body>
 
-  <!-- Autoplay Music -->
-  <audio autoplay loop>
-    <source src="music.mp3" type="audio/mpeg">
-  </audio>
-
   <div class="container">
     <h1>Happy Propose Day ❤️</h1>
     <div class="subtitle">For Ruchi… from my heart 💌</div>
 
     <div class="envelope">
-      <p style="font-size:1.15rem;">
+      <p style="font-size:1.15rem; line-height:1.6;">
         To Ruchi ❤️ <br>
         Open this when you’re alone.
       </p>
 
-      <button class="btn" onclick="openLetter()">Unseal the letter 💌</button>
+      <a class="btn" href="letter.html">Unseal the letter 💌</a>
     </div>
 
-    <div class="letter" id="letterBox">
-      <div class="typing" id="typedText"></div>
-
-      <button class="propose-btn" id="proposeBtn" onclick="finalMessage()">
-        One last thing… ❤️
-      </button>
-
-      <div class="final-msg" id="finalMsg"></div>
-    </div>
+    <footer>
+      Made with ❤️ just for you, Ruchi.
+    </footer>
   </div>
-
-  <footer>
-    Made with ❤️ just for you, Ruchi.
-  </footer>
-
-  <script>
-    const message = `Ruchi,
-This is not just a message…
-it’s something I’ve been carrying in my heart.
-
-You are the calm in my chaos,
-the smile in my ordinary days,
-and the most beautiful part of my life.
-
-Every moment with you feels like something I want to keep forever.
-And honestly…
-I don’t want to imagine my future without you.
-
-So today, on Propose Day…
-I just want to say this from the deepest part of my heart.`;
-
-    let i = 0;
-
-    function openLetter() {
-      document.getElementById("letterBox").style.display = "block";
-      typeWriter();
-    }
-
-    function typeWriter() {
-      if (i < message.length) {
-        document.getElementById("typedText").innerHTML += message.charAt(i);
-        i++;
-        setTimeout(typeWriter, 35);
-      } else {
-        document.getElementById("proposeBtn").style.display = "block";
-      }
-    }
-
-    function finalMessage() {
-      document.getElementById("proposeBtn").style.display = "none";
-
-      document.getElementById("finalMsg").innerHTML = `
-        <div style="margin-top:20px; font-size:1.3rem; font-weight:600;">
-          Ruchi… will you be mine? 💍
-        </div>
-
-        <button onclick="showAnswer()" style="
-          margin-top:20px;
-          background:#e6c36a;
-          border:none;
-          padding:12px 30px;
-          border-radius:30px;
-          font-size:1rem;
-          cursor:pointer;
-          font-weight:600;
-        ">
-          YES ❤️
-        </button>
-      `;
-    }
-
-    function showAnswer() {
-      document.getElementById("finalMsg").innerHTML = `
-        <div style="margin-top:25px; font-size:1.3rem; font-weight:600;">
-          Ruchi… will you be mine? 💍
-        </div>
-
-        <div style="margin-top:20px; font-size:1.2rem;">
-          You already are. ❤️ Happy Propose Day, my love 😘
-        </div>
-      `;
-    }
-  </script>
 
 </body>
 </html>
