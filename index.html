@@ -3,260 +3,185 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Propose Day Ruchi 💍</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <title>Happy Propose Day ❤️</title>
 
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: "Inter", sans-serif;
-      background: radial-gradient(circle at top, #1a1a2e, #0b0b15);
-      color: #f5f2e9;
+      font-family: Georgia, serif;
+      background: linear-gradient(to bottom, #0b0b0f, #141421);
+      color: #f5f5f5;
       text-align: center;
       overflow-x: hidden;
     }
 
-    .landing {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
+    .container {
+      padding: 60px 20px;
+      max-width: 700px;
+      margin: auto;
     }
 
-    .landing h1 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 2.7rem;
-      color: #e6c36a;
+    h1 {
+      font-size: 2.4rem;
       margin-bottom: 10px;
+      color: #e6c36a;
       letter-spacing: 1px;
     }
 
-    .landing p {
-      max-width: 520px;
+    .subtitle {
       font-size: 1.1rem;
-      line-height: 1.6;
       opacity: 0.9;
-      color: #f5f2e9;
+      margin-bottom: 40px;
     }
 
-    .open-btn {
+    .envelope {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(230, 195, 106, 0.35);
+      border-radius: 18px;
+      padding: 30px 20px;
+      box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn {
       margin-top: 25px;
-      background: #e6c36a;
-      border: none;
-      padding: 14px 28px;
-      border-radius: 40px;
+      background: transparent;
+      border: 2px solid #e6c36a;
+      padding: 12px 26px;
+      border-radius: 35px;
       font-size: 1rem;
-      color: #0b0b15;
-      cursor: pointer;
-      font-weight: 600;
-      transition: 0.3s;
-      box-shadow: 0px 10px 20px rgba(0,0,0,0.5);
-    }
-
-    .open-btn:hover {
-      transform: scale(1.06);
-      background: #ffd77c;
-    }
-
-    .main {
-      display: none;
-      padding: 50px 15px 80px;
-      animation: fadeIn 1.2s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(18px); }
-      to { opacity: 1; transform: translateY(0px); }
-    }
-
-    .letter-box {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 22px;
-      padding: 30px 25px;
-      margin: auto;
-      width: 85%;
-      max-width: 650px;
-      box-shadow: 0px 15px 35px rgba(0,0,0,0.6);
-      backdrop-filter: blur(10px);
-      text-align: left;
-    }
-
-    .letter-title {
-      text-align: center;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 2.2rem;
       color: #e6c36a;
-      margin-bottom: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: 600;
     }
 
-    .typed {
-      font-size: 1.15rem;
-      line-height: 1.8;
-      color: #f5f2e9;
-      white-space: pre-line;
-      min-height: 250px;
-    }
-
-    .cursor {
-      display: inline-block;
-      width: 8px;
+    .btn:hover {
       background: #e6c36a;
-      margin-left: 3px;
+      color: #0b0b0f;
+      transform: scale(1.05);
+    }
+
+    .letter {
+      display: none;
+      margin-top: 35px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 18px;
+      padding: 30px 22px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      text-align: left;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.45);
+    }
+
+    .typing {
+      border-right: 2px solid #e6c36a;
+      white-space: pre-wrap;
+      overflow: hidden;
       animation: blink 0.8s infinite;
-      height: 18px;
-      transform: translateY(3px);
     }
 
     @keyframes blink {
-      50% { opacity: 0; }
+      50% {
+        border-color: transparent;
+      }
     }
 
     .propose-btn {
-  display: none;
-  margin: 25px auto 0;
-  background: transparent;
-  border: 2px solid #e6c36a;
-  padding: 12px 26px;
-  border-radius: 35px;
-  font-size: 1rem;
-  color: #e6c36a;
-  cursor: pointer;
-  transition: 0.3s;
-  font-weight: 600;
-  text-align: center;
+      display: none;
+      margin: 25px auto 0;
+      background: transparent;
+      border: 2px solid #e6c36a;
+      padding: 12px 26px;
+      border-radius: 35px;
+      font-size: 1rem;
+      color: #e6c36a;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: 600;
+      text-align: center;
     }
 
     .propose-btn:hover {
       background: #e6c36a;
-      color: #0b0b15;
+      color: #0b0b0f;
       transform: scale(1.05);
     }
 
     .final-msg {
-      display: none;
+      margin-top: 30px;
+      font-size: 1.3rem;
+      font-weight: 600;
       text-align: center;
-      margin-top: 35px;
-      font-size: 1.7rem;
-      font-family: "Cormorant Garamond", serif;
-      color: #ffd77c;
-      animation: fadeIn 1.2s ease-in-out;
-    }
-
-    .music-control {
-      margin-top: 25px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 10px 18px;
-      border-radius: 30px;
-      color: #f5f2e9;
-      cursor: pointer;
-      font-size: 0.95rem;
-      transition: 0.3s;
-    }
-
-    .music-control:hover {
-      background: rgba(255,255,255,0.18);
+      color: #e6c36a;
     }
 
     footer {
       margin-top: 60px;
-      text-align: center;
-      opacity: 0.75;
+      padding: 20px;
       font-size: 0.9rem;
+      opacity: 0.75;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Audio (starts after click) -->
-  <audio id="bgMusic" loop>
+  <!-- Autoplay Music -->
+  <audio autoplay loop>
     <source src="music.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- Landing -->
-  <div class="landing" id="landing">
-    <h1>Ruchi 💍</h1>
-    <p>
-      Tonight I wrote something for you.  
-      It’s not loud, not dramatic…  
-      just honest.
-    </p>
+  <div class="container">
+    <h1>Happy Propose Day ❤️</h1>
+    <div class="subtitle">For Ruchi… from my heart 💌</div>
 
-    <button class="open-btn" onclick="openLetter()">Open your letter 💌</button>
-  </div>
+    <div class="envelope">
+      <p style="font-size:1.15rem;">
+        To Ruchi ❤️ <br>
+        Open this when you’re alone.
+      </p>
 
-  <!-- Main Letter -->
-  <div class="main" id="main">
-    <div class="letter-box">
-      <div class="letter-title">Happy Propose Day, Ruchi ❤️</div>
-
-      <div class="typed" id="typedText"></div><span class="cursor"></span>
-
-      <button class="propose-btn" id="proposeBtn" onclick="showFinal()">
-        Ruchi, will you be mine? 💍
-      </button>
-
-      <div class="final-msg" id="finalMsg">
-        You already are. ❤️<br>
-        Happy Propose Day, my love 😘
-      </div>
-
-      <div style="text-align:center;">
-        <button class="music-control" onclick="toggleMusic()">🎶 Pause / Play Music</button>
-      </div>
+      <button class="btn" onclick="openLetter()">Unseal the letter 💌</button>
     </div>
 
-    <footer>
-      Made with love, only for Ruchi.
-    </footer>
+    <div class="letter" id="letterBox">
+      <div class="typing" id="typedText"></div>
+
+      <button class="propose-btn" id="proposeBtn" onclick="finalMessage()">
+        One last thing… ❤️
+      </button>
+
+      <div class="final-msg" id="finalMsg"></div>
+    </div>
   </div>
 
+  <footer>
+    Made with ❤️ just for you, Ruchi.
+  </footer>
+
   <script>
-    let musicPlaying = false;
+    const message = `Ruchi,
+This is not just a message…
+it’s something I’ve been carrying in my heart.
 
-    const message = `My dearest Ruchi,
+You are the calm in my chaos,
+the smile in my ordinary days,
+and the most beautiful part of my life.
 
-I don’t know how to explain it perfectly...
+Every moment with you feels like something I want to keep forever.
+And honestly…
+I don’t want to imagine my future without you.
 
-But ever since you came into my life,
-everything started feeling softer.
-Smiles became easier.
-Days became brighter.
-
-And somehow,
-you became my favourite thought.
-
-I don’t want perfect moments.
-I just want moments with you.
-
-So today, on Propose Day...
-I just want to say one thing:
-
-I choose you.
-In every mood.
-In every season.
-In every version of life.
-
-Always.`;
+So today, on Propose Day…
+I just want to say this from the deepest part of my heart.`;
 
     let i = 0;
 
     function openLetter() {
-      document.getElementById("landing").style.display = "none";
-      document.getElementById("main").style.display = "block";
-
-      // start music after click (mobile safe)
-      const music = document.getElementById("bgMusic");
-      music.play();
-      musicPlaying = true;
-
+      document.getElementById("letterBox").style.display = "block";
       typeWriter();
     }
 
@@ -270,21 +195,39 @@ Always.`;
       }
     }
 
-    function showFinal() {
-      document.getElementById("finalMsg").style.display = "block";
-      window.scrollTo(0, document.body.scrollHeight);
+    function finalMessage() {
+      document.getElementById("proposeBtn").style.display = "none";
+
+      document.getElementById("finalMsg").innerHTML = `
+        <div style="margin-top:20px; font-size:1.3rem; font-weight:600;">
+          Ruchi… will you be mine? 💍
+        </div>
+
+        <button onclick="showAnswer()" style="
+          margin-top:20px;
+          background:#e6c36a;
+          border:none;
+          padding:12px 30px;
+          border-radius:30px;
+          font-size:1rem;
+          cursor:pointer;
+          font-weight:600;
+        ">
+          YES ❤️
+        </button>
+      `;
     }
 
-    function toggleMusic() {
-      const music = document.getElementById("bgMusic");
+    function showAnswer() {
+      document.getElementById("finalMsg").innerHTML = `
+        <div style="margin-top:25px; font-size:1.3rem; font-weight:600;">
+          Ruchi… will you be mine? 💍
+        </div>
 
-      if (musicPlaying) {
-        music.pause();
-        musicPlaying = false;
-      } else {
-        music.play();
-        musicPlaying = true;
-      }
+        <div style="margin-top:20px; font-size:1.2rem;">
+          You already are. ❤️ Happy Propose Day, my love 😘
+        </div>
+      `;
     }
   </script>
 
