@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Propose Day Ruchi 💍</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", sans-serif;
+      background: radial-gradient(circle at top, #1a1a2e, #0b0b15);
+      color: #f5f2e9;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .landing {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .landing h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.7rem;
+      color: #e6c36a;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .landing p {
+      max-width: 520px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      opacity: 0.9;
+      color: #f5f2e9;
+    }
+
+    .open-btn {
+      margin-top: 25px;
+      background: #e6c36a;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 40px;
+      font-size: 1rem;
+      color: #0b0b15;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+      box-shadow: 0px 10px 20px rgba(0,0,0,0.5);
+    }
+
+    .open-btn:hover {
+      transform: scale(1.06);
+      background: #ffd77c;
+    }
+
+    .main {
+      display: none;
+      padding: 50px 15px 80px;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0px); }
+    }
+
+    .letter-box {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 22px;
+      padding: 30px 25px;
+      margin: auto;
+      width: 85%;
+      max-width: 650px;
+      box-shadow: 0px 15px 35px rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+      text-align: left;
+    }
+
+    .letter-title {
+      text-align: center;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.2rem;
+      color: #e6c36a;
+      margin-bottom: 15px;
+    }
+
+    .typed {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #f5f2e9;
+      white-space: pre-line;
+      min-height: 250px;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      background: #e6c36a;
+      margin-left: 3px;
+      animation: blink 0.8s infinite;
+      height: 18px;
+      transform: translateY(3px);
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .propose-btn {
+      display: none;
+      margin: 25px auto 0;
+      background: transparent;
+      border: 2px solid #e6c36a;
+      padding: 12px 26px;
+      border-radius: 35px;
+      font-size: 1rem;
+      color: #e6c36a;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: 600;
+      display: block;
+      text-align: center;
+    }
+
+    .propose-btn:hover {
+      background: #e6c36a;
+      color: #0b0b15;
+      transform: scale(1.05);
+    }
+
+    .final-msg {
+      display: none;
+      text-align: center;
+      margin-top: 35px;
+      font-size: 1.7rem;
+      font-family: "Cormorant Garamond", serif;
+      color: #ffd77c;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    .music-control {
+      margin-top: 25px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 10px 18px;
+      border-radius: 30px;
+      color: #f5f2e9;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+
+    .music-control:hover {
+      background: rgba(255,255,255,0.18);
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      opacity: 0.75;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Audio (starts after click) -->
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Landing -->
+  <div class="landing" id="landing">
+    <h1>Ruchi 💍</h1>
+    <p>
+      Tonight I wrote something for you.  
+      It’s not loud, not dramatic…  
+      just honest.
+    </p>
+
+    <button class="open-btn" onclick="openLetter()">Open your letter 💌</button>
+  </div>
+
+  <!-- Main Letter -->
+  <div class="main" id="main">
+    <div class="letter-box">
+      <div class="letter-title">Happy Propose Day, Ruchi ❤️</div>
+
+      <div class="typed" id="typedText"></div><span class="cursor"></span>
+
+      <button class="propose-btn" id="proposeBtn" onclick="showFinal()">
+        Ruchi, will you be mine? 💍
+      </button>
+
+      <div class="final-msg" id="finalMsg">
+        You already are. ❤️<br>
+        Happy Propose Day, my love 😘
+      </div>
+
+      <div style="text-align:center;">
+        <button class="music-control" onclick="toggleMusic()">🎶 Pause / Play Music</button>
+      </div>
+    </div>
+
+    <footer>
+      Made with love, only for Ruchi.
+    </footer>
+  </div>
+
+  <script>
+    let musicPlaying = false;
+
+    const message = `My dearest Ruchi,
+
+I don’t know how to explain it perfectly...
+
+But ever since you came into my life,
+everything started feeling softer.
+Smiles became easier.
+Days became brighter.
+
+And somehow,
+you became my favourite thought.
+
+I don’t want perfect moments.
+I just want moments with you.
+
+So today, on Propose Day...
+I just want to say one thing:
+
+I choose you.
+In every mood.
+In every season.
+In every version of life.
+
+Always.`;
+
+    let i = 0;
+
+    function openLetter() {
+      document.getElementById("landing").style.display = "none";
+      document.getElementById("main").style.display = "block";
+
+      // start music after click (mobile safe)
+      const music = document.getElementById("bgMusic");
+      music.play();
+      musicPlaying = true;
+
+      typeWriter();
+    }
+
+    function typeWriter() {
+      if (i < message.length) {
+        document.getElementById("typedText").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, 35);
+      } else {
+        document.getElementById("proposeBtn").style.display = "block";
+      }
+    }
+
+    function showFinal() {
+      document.getElementById("finalMsg").style.display = "block";
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function toggleMusic() {
+      const music = document.getElementById("bgMusic");
+
+      if (musicPlaying) {
+        music.pause();
+        musicPlaying = false;
+      } else {
+        music.play();
+        musicPlaying = true;
+      }
+    }
+  </script>
+
+</body>
+</html>
