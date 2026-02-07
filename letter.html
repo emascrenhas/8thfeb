@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Ruchi ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Georgia, serif;
+      background: linear-gradient(to bottom, #0b0b0f, #141421);
+      color: #f5f5f5;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .container {
+      padding: 60px 20px;
+      max-width: 750px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      color: #e6c36a;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 40px;
+    }
+
+    .letter {
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 18px;
+      padding: 30px 22px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      text-align: left;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.45);
+    }
+
+    .typing {
+      border-right: 2px solid #e6c36a;
+      white-space: pre-wrap;
+      overflow: hidden;
+      animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        border-color: transparent;
+      }
+    }
+
+    .propose-btn {
+      display: none;
+      margin: 25px auto 0;
+      background: transparent;
+      border: 2px solid #e6c36a;
+      padding: 12px 26px;
+      border-radius: 35px;
+      font-size: 1rem;
+      color: #e6c36a;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .propose-btn:hover {
+      background: #e6c36a;
+      color: #0b0b0f;
+      transform: scale(1.05);
+    }
+
+    .final-msg {
+      margin-top: 30px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      text-align: center;
+      color: #e6c36a;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 20px;
+      font-size: 0.9rem;
+      opacity: 0.75;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Autoplay Music -->
+  <audio autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container">
+    <h1>For Ruchi ❤️</h1>
+    <div class="subtitle">A letter from my heart…</div>
+
+    <div class="letter">
+      <div class="typing" id="typedText"></div>
+
+      <button class="propose-btn" id="proposeBtn" onclick="finalMessage()">
+        One last thing… ❤️
+      </button>
+
+      <div class="final-msg" id="finalMsg"></div>
+    </div>
+
+    <footer>
+      Made with ❤️ just for you, Ruchi.
+    </footer>
+  </div>
+
+  <script>
+    const message = `Ruchi,
+This is not just a message…
+it’s something I’ve been carrying in my heart.
+
+You are the calm in my chaos,
+the smile in my ordinary days,
+and the most beautiful part of my life.
+
+Every moment with you feels like something I want to keep forever.
+And honestly…
+I don’t want to imagine my future without you.
+
+So today, on Propose Day…
+I just want to say this from the deepest part of my heart.`;
+
+    let i = 0;
+
+    function typeWriter() {
+      if (i < message.length) {
+        document.getElementById("typedText").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, 35);
+      } else {
+        document.getElementById("proposeBtn").style.display = "block";
+      }
+    }
+
+    window.onload = typeWriter;
+
+    function finalMessage() {
+      document.getElementById("proposeBtn").style.display = "none";
+
+      document.getElementById("finalMsg").innerHTML = `
+        <div style="margin-top:20px; font-size:1.3rem; font-weight:600;">
+          Ruchi… will you be mine? 💍
+        </div>
+
+        <button onclick="revealAnswer()" style="
+          margin-top:20px;
+          background:transparent;
+          border:2px solid #e6c36a;
+          padding:12px 30px;
+          border-radius:30px;
+          font-size:1rem;
+          cursor:pointer;
+          font-weight:600;
+          color:#e6c36a;
+          transition:0.3s;
+        ">
+          Reveal my answer ❤️
+        </button>
+      `;
+    }
+
+    function revealAnswer() {
+      document.getElementById("finalMsg").innerHTML = `
+        <div style="margin-top:20px; font-size:1.3rem; font-weight:600;">
+          Ruchi… will you be mine? 💍
+        </div>
+
+        <div style="margin-top:20px; font-size:1.2rem;">
+          You already are. ❤️ Happy Propose Day, my love 😘
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
