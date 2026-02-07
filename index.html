@@ -118,18 +118,18 @@
     }
 
     .propose-btn {
-  display: none;
-  margin: 25px auto 0;
-  background: transparent;
-  border: 2px solid #e6c36a;
-  padding: 12px 26px;
-  border-radius: 35px;
-  font-size: 1rem;
-  color: #e6c36a;
-  cursor: pointer;
-  transition: 0.3s;
-  font-weight: 600;
-  text-align: center;
+      display: none;
+      margin: 25px auto 0;
+      background: transparent;
+      border: 2px solid #e6c36a;
+      padding: 12px 26px;
+      border-radius: 35px;
+      font-size: 1rem;
+      color: #e6c36a;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: 600;
+      text-align: center;
     }
 
     .propose-btn:hover {
@@ -138,40 +138,14 @@
       transform: scale(1.05);
     }
 
-  function finalMessage() {
-    document.getElementById("proposeBtn").style.display = "none";
-
-    document.getElementById("finalMsg").innerHTML = `
-      <div style="margin-top:20px; font-size:1.3rem; font-weight:600;">
-        Ruchi… will you be mine? 💍
-      </div>
-
-      <button onclick="showAnswer()" style="
-        margin-top:20px;
-        background:#e6c36a;
-        border:none;
-        padding:12px 30px;
-        border-radius:30px;
-        font-size:1rem;
-        cursor:pointer;
-        font-weight:600;
-      ">
-        YES ❤️
-      </button>
-    `;
-  }
-
-  function showAnswer() {
-    document.getElementById("finalMsg").innerHTML = `
-      <div style="margin-top:25px; font-size:1.3rem; font-weight:600;">
-        Ruchi… will you be mine? 💍
-      </div>
-
-      <div style="margin-top:20px; font-size:1.2rem;">
-        You already are. ❤️ Happy Propose Day, my love 😘
-      </div>
-    `;
-  }
+    .final-msg {
+      display: none;
+      text-align: center;
+      margin-top: 25px;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #f5f2e9;
+    }
 
     .music-control {
       margin-top: 25px;
@@ -183,6 +157,9 @@
       cursor: pointer;
       font-size: 0.95rem;
       transition: 0.3s;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .music-control:hover {
@@ -200,7 +177,7 @@
 
 <body>
 
-  <!-- Audio (starts after click) -->
+  <!-- Audio -->
   <audio id="bgMusic" loop>
     <source src="music.mp3" type="audio/mpeg">
   </audio>
@@ -224,18 +201,13 @@
 
       <div class="typed" id="typedText"></div><span class="cursor"></span>
 
-      <button class="propose-btn" id="proposeBtn" onclick="showFinal()">
-        Ruchi, will you be mine? 💍
+      <button class="propose-btn" id="proposeBtn" onclick="finalMessage()">
+        One last thing… ❤️
       </button>
 
-      <div class="final-msg" id="finalMsg">
-        You already are. ❤️<br>
-        Happy Propose Day, my love 😘
-      </div>
+      <div class="final-msg" id="finalMsg"></div>
 
-      <div style="text-align:center;">
-        <button class="music-control" onclick="toggleMusic()">🎶 Pause / Play Music</button>
-      </div>
+      <button class="music-control" onclick="toggleMusic()">🎶 Pause / Play Music</button>
     </div>
 
     <footer>
@@ -270,58 +242,78 @@ In every season.
 In every version of life.
 
 Always.`;
-So today… on Propose Day…
-I just want to ask you something.`;
 
-  let i = 0;
-  const typingSpeed = 45;
+    let i = 0;
+    const typingSpeed = 45;
 
-  function typeMessage() {
-    if (i < message.length) {
-      document.getElementById("typedText").innerHTML += message.charAt(i);
-      i++;
-      setTimeout(typeMessage, typingSpeed);
-    } else {
-      document.getElementById("proposeBtn").style.display = "block";
+    function openLetter() {
+      document.getElementById("landing").style.display = "none";
+      document.getElementById("main").style.display = "block";
+
+      const music = document.getElementById("bgMusic");
+      music.play().catch(() => {});
+      musicPlaying = true;
+
+      typeMessage();
     }
-  }
 
-  window.onload = typeMessage;
+    function typeMessage() {
+      if (i < message.length) {
+        document.getElementById("typedText").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeMessage, typingSpeed);
+      } else {
+        document.getElementById("proposeBtn").style.display = "block";
+      }
+    }
 
-  function finalMessage() {
-    document.getElementById("proposeBtn").style.display = "none";
+    function finalMessage() {
+      document.getElementById("proposeBtn").style.display = "none";
 
-    document.getElementById("finalMsg").innerHTML = `
-      <div style="margin-top:20px; font-size:1.3rem; font-weight:600;">
-        Ruchi… will you be mine? 💍
-      </div>
+      document.getElementById("finalMsg").style.display = "block";
 
-      <button onclick="showAnswer()" style="
-        margin-top:20px;
-        background:#e6c36a;
-        border:none;
-        padding:12px 30px;
-        border-radius:30px;
-        font-size:1rem;
-        cursor:pointer;
-        font-weight:600;
-      ">
-        YES ❤️
-      </button>
-    `;
-  }
+      document.getElementById("finalMsg").innerHTML = `
+        <div style="margin-top:20px; font-size:1.3rem; font-weight:600;">
+          Ruchi… will you be mine? 💍
+        </div>
 
-  function showAnswer() {
-    document.getElementById("finalMsg").innerHTML = `
-      <div style="margin-top:25px; font-size:1.3rem; font-weight:600;">
-        Ruchi… will you be mine? 💍
-      </div>
+        <button onclick="showAnswer()" style="
+          margin-top:20px;
+          background:#e6c36a;
+          border:none;
+          padding:12px 30px;
+          border-radius:30px;
+          font-size:1rem;
+          cursor:pointer;
+          font-weight:600;
+        ">
+          YES ❤️
+        </button>
+      `;
+    }
 
-      <div style="margin-top:20px; font-size:1.2rem;">
-        You already are. ❤️ Happy Propose Day, my love 😘
-      </div>
-    `;
-  }
+    function showAnswer() {
+      document.getElementById("finalMsg").innerHTML = `
+        <div style="margin-top:25px; font-size:1.3rem; font-weight:600;">
+          Ruchi… will you be mine? 💍
+        </div>
+
+        <div style="margin-top:20px; font-size:1.2rem;">
+          You already are. ❤️ Happy Propose Day, my love 😘
+        </div>
+      `;
+    }
+
+    function toggleMusic() {
+      const music = document.getElementById("bgMusic");
+      if (musicPlaying) {
+        music.pause();
+        musicPlaying = false;
+      } else {
+        music.play();
+        musicPlaying = true;
+      }
+    }
   </script>
 
 </body>
